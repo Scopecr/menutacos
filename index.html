@@ -1,49 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype html>
+<html lang="es">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Menu</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-			background-color: #f4f4f4;
-		}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Los Tacos · Menú</title>
+  <style>
+    :root{
+      --bg:#fff9f2;
+      --card:#ffffff;
+      --accent:#c62828;   /* rojo */
+      --accent-2:#ffcc00; /* amarillo */
+      --ink:#2b2b2b;
+      --muted:#6b6b6b;
+      --line:#eeeeee;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,"Noto Sans","Helvetica Neue",Arial,sans-serif;
+      line-height:1.45;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px 16px}
+    header.hero{background:linear-gradient(90deg,#ffde59,#ffcc80);border-bottom:4px solid var(--accent)}
+    .brand{display:flex;align-items:flex-end;gap:12px}
+    .brand h1{margin:0;font-size:clamp(28px,5vw,44px);letter-spacing:.5px;text-transform:uppercase;color:var(--accent)}
+    .brand small{color:#7a4a00}
 
-		.gallery {
-			display: flex;
-			flex-direction: column;
-		}
+    /* Sections */
+    section.menu-block{
+      display:grid;grid-template-columns:1fr min(38%,360px);gap:24px;align-items:start;
+      background:var(--card);padding:20px;border:1px solid var(--line);border-radius:18px;
+      box-shadow:0 6px 20px rgba(0,0,0,.04);margin:18px 0;
+    }
+    section.menu-block h2{margin:0 0 12px;font-size:clamp(22px,3.6vw,30px);color:var(--accent);text-transform:uppercase}
+    section.menu-block h3{margin:14px 0 6px;font-size:18px;color:#7a4a00}
 
-		.gallery img {
-			width: 100%;
-			height: auto;
-			border-radius: 8px;
-			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-		}
+    /* Photo placeholders (right side) */
+    .photo-stack{display:grid;gap:12px}
+    .placeholder, img.media{width:100%;aspect-ratio:4/3;border-radius:14px}
+    .placeholder{border:2px dashed #d0d0d0;display:flex;align-items:center;justify-content:center;color:#8a8a8a;background:#fafafa;font-size:14px}
+    img.media{object-fit:cover;border:1px solid var(--line);box-shadow:0 3px 10px rgba(0,0,0,.06)}
 
-		footer {
-			text-align: center;
-			padding: 1rem;
-			background-color: #333;
-			color: #fff;
-			margin-top: 2rem;
-		}
-	</style>
+    /* Tables & lists */
+    table.table{width:100%;border-collapse:collapse}
+    .table th,.table td{padding:10px 8px;vertical-align:top;border-bottom:1px dashed var(--line)}
+    .table th{text-align:left;font-weight:700;color:#7a4a00}
+    .price{white-space:nowrap}
+
+    ul.price-list{list-style:none;margin:8px 0 0;padding:0}
+    .price-list li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+    .meta{font-size:12px;color:var(--muted)}
+    .badge{font-size:12px;padding:2px 8px;background:#ffe082;border-radius:999px}
+    .note{font-size:.95rem;color:var(--muted);margin-top:8px}
+
+    /* Two-up columns inside a block */
+    .columns{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+    .card h3{margin:0 0 8px}
+
+    @media (max-width:800px){
+      section.menu-block{grid-template-columns:1fr}
+      .photo-stack{order:2}
+    }
+    footer{color:var(--muted);text-align:center;padding:24px 0 40px}
+  </style>
 </head>
 <body>
+  <header class="hero">
+    <div class="container brand">
+			<img src="/images/Tacos-1037655.jpg" alt="Logo Los Tacos" style="width:75px; height:75px; object-fit:cover; border-radius:75%;">
+      <h1>Los Tacos · Menú</h1>
+      <small>Precios en USD no incuye ivu</small>
+    </div>
+  </header>
 
-	<div class="gallery">
-		<img src="images/MENU 4.png" alt="Menu Picadera">
-		<img src="images/menu 1.png" alt="Menu Tacos Carrion">
-		<img src="images/MENU 3.png" alt="Menu Nachos y Papas Supreme">
-		<img src="images/menu 2.png" alt="Los Tacos Menu Especial">
-		<img src="images/MENU 5.png" alt="Menu Frappe">
-		<!-- Add more images as needed -->
-	</div>
+  <main class="container">
+    <!-- 1) Burritos / Tacos / Quesadillas -->
+    <section id="burritos-tacos" class="menu-block">
+      <div>
+        <h2>Burritos, Tacos y Quesadillas</h2>
+        <table class="table" aria-label="Burritos Tacos y Quesadillas">
+          <thead>
+            <tr><th>Relleno</th><th class="price">Burrito</th><th class="price">Taco</th><th class="price">Quesadilla</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pollo</td><td class="price">$4.00</td><td class="price">$2.50</td><td class="price">$10.00</td></tr>
+            <tr><td>Carne molida</td><td class="price">$4.25</td><td class="price">$2.50</td><td class="price">$10.00</td></tr>
+            <tr><td>Filete</td><td class="price">$6.00</td><td class="price">$3.00</td><td class="price">$12.00</td></tr>
+            <tr><td>Churrasco</td><td class="price">$8.00</td><td class="price">$3.00</td><td class="price">$15.00</td></tr>
+            <tr><td>Carnita</td><td class="price">$6.00</td><td class="price">$3.00</td><td class="price">$10.00</td></tr>
+            <tr><td>Cordero</td><td class="price">$7.00</td><td class="price">$3.00</td><td class="price">$12.00</td></tr>
+            <tr><td>Cerdo ahumado</td><td class="price">$6.00</td><td class="price">$3.00</td><td class="price">$10.00</td></tr>
+            <tr><td>Pastrami</td><td class="price">$7.00</td><td class="price">$3.00</td><td class="price">$12.00</td></tr>
+            <tr><td>Cheesesteak</td><td class="price">$6.00</td><td class="price">$3.00</td><td class="price">$12.00</td></tr>
+          </tbody>
+        </table>
 
+        <h3>Especiales</h3>
+        <ul class="price-list">
+          <li><span>Burrito Caliche <span class="badge">cordero + cheesesteak</span></span><span class="price">$7.00</span></li>
+          <li><span>Burrito mixto <span class="badge">3 carnes</span></span><span class="price">$6.00</span></li>
+          <li><span>Fish tacos</span><span class="price">$5.00</span></li>
+          <li><span>Mini taquitos</span><span class="price">$1.75</span></li>
+          <li><span>Mini burritos</span><span class="price">$2.00</span></li>
+        </ul>
+      </div>
+
+      <!-- Replace each .placeholder with <img src="ruta.jpg" alt="Descripción" class="media" /> -->
+      <div class="photo-stack" aria-label="Fotos burritos, tacos y quesadillas">
+        <img src="/images/Tacos-1037730.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+				<img src="/images/Tacos-1037757.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+      </div>
+    </section>
+
+    <!-- 2) Menú Especial -->
+    <section id="menu-especial" class="menu-block">
+      <div>
+        <h2>Menú Especial</h2>
+        <h3>Sopas <span class="meta">(según disponibilidad)</span> — <span class="price">$8.00</span></h3>
+        <ul class="price-list">
+          <li><span>Plátano</span><span></span></li>
+          <li><span>Apastelada</span><span></span></li>
+          <li><span>Caldo gallego</span><span></span></li>
+          <li><span>Sancocho</span><span></span></li>
+        </ul>
+
+        <ul class="price-list" style="margin-top:14px">
+          <li><span>Carne frita</span><span class="price">$8.00</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$11.00</span></li>
+          <li><span>Chicharrón de pollo</span><span class="price">$6.00</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$9.00</span></li>
+          <li><span>Alitas (6)</span><span class="price">$7.00</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$10.00</span></li>
+          <li><span>Slidders</span><span class="price">$9.00</span></li>
+          <li><span>Hamburguer</span><span class="price">$6.00</span></li>
+          <li><span>Smash burguer</span><span class="price">$9.00</span></li>
+          <li><span>Empanadas colombianas (6)</span><span class="price">$9.00</span></li>
+          <li><span>Tostones (pana o plátano)</span><span class="price">$3.00</span></li>
+          <li><span>Acompañantes <span class="meta">(tostones plátano o pana, papas fritas)</span></span><span class="price">$3.00</span></li>
+        </ul>
+      </div>
+      <div class="photo-stack" aria-label="Fotos menú especial">
+        <img src="/images/Tacos-1037676.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+        <img src="/images/Tacos-1037713.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+      </div>
+    </section>
+
+    <!-- 3) Nachos & Papas Supreme -->
+    <section id="nachos-papas" class="menu-block">
+      <div>
+        <h2>Nachos y Papas Supreme</h2>
+        <div class="meta">Tamaños: pequeño, mediano y grande</div>
+        <table class="table" aria-label="Nachos y Papas Supreme">
+          <thead>
+            <tr><th>Proteína</th><th class="price">Pequeño</th><th class="price">Mediano</th><th class="price">Grande</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pollo</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Carne mólida</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Filete</td><td class="price">$12</td><td class="price">$15</td><td class="price">$17</td></tr>
+            <tr><td>Churrasco</td><td class="price">$12</td><td class="price">$15</td><td class="price">$17</td></tr>
+            <tr><td>Carnita</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Cordero</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Cerdo ahumado</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Pastrami</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+            <tr><td>Cheesesteak</td><td class="price">$10</td><td class="price">$12</td><td class="price">$15</td></tr>
+          </tbody>
+        </table>
+        <p class="note">*Incluye lechuga, tomate, queso y sour cream.</p>
+      </div>
+      <div class="photo-stack" aria-label="Fotos nachos y papas">
+        <img src="/images/Tacos-1037643.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+				<img src="/images/Tacos-1037784.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+      </div>
+    </section>
+
+    <!-- 4) Picadera -->
+    <section id="picadera" class="menu-block">
+      <div>
+        <h2>Picadera</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>Combinaciones</h3>
+            <ul class="price-list">
+              <li><span>12 piezas</span><span class="price">$12</span></li>
+              <li><span>24 piezas</span><span class="price">$24</span></li>
+              <li><span>30 piezas</span><span class="price">$30</span></li>
+            </ul>
+            <div class="note">Incluye selección de: carne frita, chicharrón de pollo, alitas, mini frituritas.</div>
+          </div>
+          <div class="card">
+            <h3>Para compartir</h3>
+            <ul class="price-list">
+              <li><span>Mozzarella (6)</span><span class="price">$6</span></li>
+              <li><span>Flautas (6)</span><span class="price">$6</span></li>
+              <li><span>Cordon bleu (6)</span><span class="price">$6</span></li>
+              <li><span>Bacalaíto (6)</span><span class="price">$4</span></li>
+              <li><span>Croqueta de jamón (6)</span><span class="price">$6</span></li>
+              <li><span>Bites salmón ahumado (6)</span><span class="price">$7</span></li>
+              <li><span>Bocadillo de dorado (1)</span><span class="price">$4</span></li>
+              <li><span>Egg roll (3)</span><span class="price">$9</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="photo-stack" aria-label="Fotos picadera">
+        <img src="/images/Tacos-1037762.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+				<img src="/images/Tacos-1037687.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+      </div>
+    </section>
+
+    <!-- 5) Frappes & Bebidas -->
+    <section id="bebidas" class="menu-block">
+      <div>
+        <h2>Frappe &amp; Bebidas</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>Frappe 16 oz <span class="price">$6.00</span></h3>
+            <ul class="price-list">
+              <li><span>Oreo</span><span></span></li>
+              <li><span>Piña</span><span></span></li>
+              <li><span>Papaya</span><span></span></li>
+              <li><span>Mantequilla de maní</span><span></span></li>
+              <li><span>Sara Lee</span><span></span></li>
+              <li><span>Fresa</span><span></span></li>
+              <li><span>Cameo</span><span></span></li>
+              <li><span>Frutas mixta</span><span></span></li>
+              <li><span>Nutella</span><span></span></li>
+              <li><span>Mango</span><span></span></li>
+              <li><span>Guineo</span><span></span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Bebidas</h3>
+            <ul class="price-list">
+              <li><span>Jugos China natural</span><span class="price">$6</span></li>
+              <li><span class="meta">sin hielo</span><span class="price">$7</span></li>
+              <li><span>Jugos naturales</span><span class="price">$3.50</span></li>
+              <li><span>Sodas</span><span></span></li>
+              <li><span>Variedad de cervezas</span><span></span></li>
+              <li><span>Variedad de licores</span><span></span></li>
+              <li><span>Sangría</span><span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="photo-stack" aria-label="Fotos bebidas y frappe">
+        <img src="/images/Tacos-1037695.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+				<img src="/images/Tacos-1037648.jpg" alt="..." style="width:375px; height:350px; object-fit:cover; object-position:center;">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Los Tacos — ¡Buen provecho!
+		<br>
+		<a src="https://www.pixelxben.com/"><h5>Pictures by @pixelxben</h5></a>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
