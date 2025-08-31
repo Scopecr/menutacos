@@ -38,7 +38,7 @@
 
     /* Photo placeholders (right side) */
     .photo-stack{display:grid;gap:12px}
-    .placeholder, img.media{width:100%;aspect-ratio:4/3;border-radius:14px}
+    .placeholder, img.media{width:100%;aspect-ratio:19/9;border-radius:14px}
     .placeholder{border:2px dashed #d0d0d0;display:flex;align-items:center;justify-content:center;color:#8a8a8a;background:#fafafa;font-size:14px}
     img.media{object-fit:cover;border:1px solid var(--line);box-shadow:0 3px 10px rgba(0,0,0,.06)}
 
@@ -61,7 +61,17 @@
     /* Two-up columns inside a block */
     .columns{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
-    .card h3{margin:0 0 8px}
+    .card h3{margin:0 0 12px}
+
+    @media (max-width: 700px){
+      .card{
+        aspect-ratio: 19 / 9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
 
     @media (max-width:800px){
       section.menu-block{grid-template-columns:1fr}
