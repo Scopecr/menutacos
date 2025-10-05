@@ -34,11 +34,11 @@
       box-shadow:0 6px 20px rgba(0,0,0,.04);margin:18px 0;
     }
     section.menu-block h2{margin:0 0 12px;font-size:clamp(22px,3.6vw,30px);color:var(--accent);text-transform:uppercase}
-    section.menu-block h3{margin:14px 0 6px;font-size:18px;color:#7a4a00}
+    section.menu-block h3{margin:14px 0 10px;font-size:18px;color:#7a4a00}
 
     /* Photo placeholders (right side) */
     .photo-stack{display:grid;gap:12px}
-    .placeholder, img.media{width:100%;aspect-ratio:19/9;border-radius:14px}
+    .placeholder, img.media{width:100%;aspect-ratio:auto;border-radius:14px}
     .placeholder{border:2px dashed #d0d0d0;display:flex;align-items:center;justify-content:center;color:#8a8a8a;background:#fafafa;font-size:14px}
     img.media{object-fit:cover;border:1px solid var(--line);box-shadow:0 3px 10px rgba(0,0,0,.06)}
 
@@ -49,8 +49,8 @@
     .table th{text-align:left;font-weight:700;color:#7a4a00}
     .price{white-space:nowrap}
 
-    ul.price-list{list-style:none;margin:8px 0 0;padding:0}
-    .price-list li{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--line)}
+    ul.price-list{list-style:none;margin:5px 0 0;padding:0;margin-right: 8px;}
+    .price-list li{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;padding:6px 0;border-bottom:1px dashed var(--line)}
     @media (max-width:560px){
       .price-list li{grid-template-columns:1fr auto;gap:6px}
     }
@@ -141,18 +141,18 @@
         </ul>
 
         <ul class="price-list" style="margin-top:14px">
-          <li><span>Carne frita</span><span class="price">$8.00</span></li>
-          <li><span class="meta">con acompañante</span><span class="price">$11.00</span></li>
-          <li><span>Chicharrón de pollo</span><span class="price">$6.00</span></li>
-          <li><span class="meta">con acompañante</span><span class="price">$9.00</span></li>
-          <li><span>Alitas (6)</span><span class="price">$7.00</span></li>
-          <li><span class="meta">con acompañante</span><span class="price">$10.00</span></li>
-          <li><span>Slidders</span><span class="price">$9.00</span></li>
-          <li><span>Hamburguer</span><span class="price">$6.00</span></li>
-          <li><span>Smash burguer</span><span class="price">$9.00</span></li>
-          <li><span>Empanadas colombianas (6)</span><span class="price">$9.00</span></li>
-          <li><span>Tostones (pana o plátano)</span><span class="price">$3.00</span></li>
-          <li><span>Acompañantes <span class="meta">(tostones plátano o pana, papas fritas)</span></span><span class="price">$3.00</span></li>
+          <li><span>Carne frita</span><span class="price">$8</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$11</span></li>
+          <li><span>Chicharrón de pollo</span><span class="price">$6</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$9</span></li>
+          <li><span>Alitas (6)</span><span class="price">$7</span></li>
+          <li><span class="meta">con acompañante</span><span class="price">$10</span></li>
+          <li><span>Slidders</span><span class="price">$9</span></li>
+          <li><span>Hamburguer</span><span class="price">$6</span></li>
+          <li><span>Smash burguer</span><span class="price">$9</span></li>
+          <li><span>Empanadas colombianas (6)</span><span class="price">$9</span></li>
+          <li><span>Tostones (pana o plátano)</span><span class="price">$3</span></li>
+          <li><span>Acompañantes <span class="meta">(tostones plátano o pana, papas fritas)</span></span><span class="price">$3</span></li>
         </ul>
       </div>
       <div class="photo-stack" aria-label="Fotos menú especial">
